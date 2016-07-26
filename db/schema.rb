@@ -25,13 +25,13 @@ ActiveRecord::Schema.define(version: 20160726122203) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer  "user_id_id"
-    t.integer  "product_id_id"
+    t.integer  "user_id"
+    t.integer  "product_id"
     t.text     "content"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["product_id_id"], name: "index_reviews_on_product_id_id"
-    t.index ["user_id_id"], name: "index_reviews_on_user_id_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_reviews_on_product_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'users#index'
+
   resources :products
   resources :reviews
   resources :users

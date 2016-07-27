@@ -8,6 +8,10 @@ Rails.application.routes.draw do
 
   #dynamic routes
   get 'staffs/signup', to: 'staffs#new'
+  get 'staffs/login', to: 'sessions#new'
+  post 'staffs/login', to: 'sessions#create'
+  delete 'staffs/logout', to: 'sessions#destroy'
+
 
   #restful routes
   resources :products

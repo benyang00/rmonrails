@@ -16,5 +16,5 @@ class Staff < ApplicationRecord
             uniqueness: { case_sensitive: false }
 
   #For hashing password
-  # has_secure_password
+  has_secure_password
 end

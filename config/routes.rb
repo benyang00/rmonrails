@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
   #root routes
   root 'users#index'
 
   #static routes
 
   #dynamic routes
-  get '/signup', to: 'staffs#new'
+  get 'staffs/signup', to: 'staffs#new'
 
   #restful routes
   resources :products

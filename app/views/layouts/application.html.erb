@@ -9,6 +9,15 @@
   </head>
 
   <body>
+
+    <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>" role="alert">
+      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+      <span class="sr-only">Error:</span>
+      <%= value %>
+    </div>
+    <% end %>
+
     <%= yield %>
   </body>
 

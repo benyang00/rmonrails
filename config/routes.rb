@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   #root routes
-  root 'users#index'
+  root 'sessions#new'
 
   #static routes
 

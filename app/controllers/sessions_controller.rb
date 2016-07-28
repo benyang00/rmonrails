@@ -7,13 +7,17 @@ class SessionsController < ApplicationController
     if staff && staff.authenticate(params[:session][:password])
       log_in staff
       flash[:success] = 'Login successful!'
-      redirect_to('/users')
+      redirect_to staff_url(staff.id)
     else
       flash.now[:danger] = 'Invalid email/password combination!'
       render 'new'
     end
   end
 
+
+
   def destroy
+    log_out
+    redirect_to root_url
   end
 end

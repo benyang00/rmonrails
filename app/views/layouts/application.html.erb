@@ -4,11 +4,15 @@
     <title>Rmonrails</title>
     <%= csrf_meta_tags %>
 
+    <meta name="viewport" content="width=device-width">
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+
+    <%= render 'partials/header' %>
 
     <% flash.each do |key, value| %>
     <div class="alert alert-<%= key %>" role="alert">

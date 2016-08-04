@@ -10,24 +10,21 @@ require 'product'
 require 'review'
 require 'faker'
 
-(1..100).each do |i|
+(1..20).each do |i|
   User.create(
   name: Faker::Name.name,
   email: Faker::Internet.email,
-  address: "#{Faker::Address.street_address} #{Faker::Address.city} #{Faker::Address.state} #{Faker::Address.zip_code} #{Faker::Address.country}",
-  password: Faker::Internet.password,
-  cc_number: Faker::Business.credit_card_number
   )
 end
 
-(1..100).each do |j|
+(1..20).each do |j|
   Product.create(
   name: Faker::Commerce.product_name,
   price: Faker::Commerce.price
   )
 end
 
-(1..25).each do |k|
+(1..200).each do |k|
   Review.create(
   user_id: User.pluck(:id).sample,
   product_id: Product.pluck(:id).sample,

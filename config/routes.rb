@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   #root routes
-  root 'sessions#new'
+  root 'static_pages#home'
 
   #static routes
   get 'faq', to: 'static_pages#faq'
@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
 
   #dynamic routes
+  get 'users/signup', to: 'users#new'
   get 'staffs/signup', to: 'staffs#new'
   get 'staffs/login', to: 'sessions#new'
   post 'staffs/login', to: 'sessions#create'

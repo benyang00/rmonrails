@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'omniauth-facebook'
 gem 'bcrypt', '3.1.11'
 gem 'bootstrap-sass'
 gem 'faker'

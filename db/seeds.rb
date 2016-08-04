@@ -12,6 +12,8 @@ require 'faker'
 
 (1..20).each do |i|
   User.create(
+  provider: 'facebook',
+  uid: '11111111111111111',
   name: Faker::Name.name,
   email: Faker::Internet.email,
   )

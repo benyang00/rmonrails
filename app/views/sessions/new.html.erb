@@ -1,4 +1,4 @@
-<h1>Staff Login</h1>
+ <h1>Staff Login</h1>
 
 <div class="row">
 
@@ -15,7 +15,8 @@
     <%= f.submit "Log in", class: "btn btn-primary" %>
 
     <% end %>
-    <p>New Administrator? <br> <%= link_to "Click here to Register.", staffs_signup_path %></p>
+
+      <%= link_to "New staff signup", staffs_signup_path %>
 
   </div>
 

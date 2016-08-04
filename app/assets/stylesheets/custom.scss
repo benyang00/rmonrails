@@ -96,6 +96,23 @@ input {
 
 /* header */
 
+.nav-centered {
+  float: none !important;
+  margin: 0 auto;
+  text-align: center;
+   li {
+     display: inline-block;
+     float: none;
+   }
+}
+
+.loggedin-bar {
+  margin: 0 auto;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+
+
 #logo {
   float: left;
   margin-right: 10px;
@@ -173,6 +190,26 @@ footer {
       margin-left: 15px;
     }
   }
+}
+
+/* static about */
+.radmartfont {
+  color: #ff0000;
+}
+
+.aboutuspara {
+  text-align: justify;
+  line-height: 150%;
+}
+
+/* static contact */
+.contactuspara {
+  line-height: 300%;
+}
+
+/* static faq */
+.faqlist {
+  list-style-type: none;
 }
 
 /* miscs */

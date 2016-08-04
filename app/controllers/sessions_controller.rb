@@ -1,5 +1,10 @@
 class SessionsController < ApplicationController
+
   def new
+    if logged_in?
+      flash[:warning] = 'You are already logged in.'
+      redirect_to about_url
+    end
   end
 
   def create
@@ -14,10 +19,9 @@ class SessionsController < ApplicationController
     end
   end
 
-
-
   def destroy
     log_out
     redirect_to root_url
   end
+
 end

@@ -1,15 +1,32 @@
 class StaffsController < ApplicationController
+  # setting default staff, based on the id
   before_action :set_staff, only: [:show, :edit, :update, :destroy]
+
+  # check if staff has already logged in
+  # before_action :require_login, only: [:index, :show, :edit, :update, :destroy]
+
+  # check if correct staff
+  before_action :correct_staff, only: [:show, :edit, :update, :destroy]
+  #
+  # check if needs log out again
+  before_action :require_logout, only: [:new]
+
 
   # GET /staffs
   # GET /staffs.json
   def index
-    @staffs = Staff.all
+    @staff = Staff.all
   end
 
   # GET /staffs/1
   # GET /staffs/1.json
   def show
+    @staff = Staff.exists?(params[:id])
+    if @staff
+      @staff = Staff.find(params[:id])
+    else
+      flash[:danger] = 'Staff does not exist.'
+    end
   end
 
   # GET /staffs/new
@@ -28,6 +45,7 @@ class StaffsController < ApplicationController
 
     respond_to do |format|
       if @staff.save
+        log_in @staff
         format.html { redirect_to @staff, notice: 'Staff was successfully created.' }
         format.json { render :show, status: :created, location: @staff }
       else
@@ -62,13 +80,39 @@ class StaffsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_staff
-      @staff = Staff.find(params[:id])
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def staff_params
+    params.require(:staff).permit(:name, :email, :password, :password_confirmation)
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def staff_params
-      params.require(:staff).permit(:name, :email, :password, :password_confirmation)
+  # Use callbacks to share common setup or constraints between actions.
+  def set_staff
+    @staff = Staff.find_by(params[:id])
+  end
+
+  # def require_login
+  #   #check if the user is logged in or not
+  #   unless logged_in?
+  #     flash[:danger] = "Log in for access"
+  #     redirect_to root_url # halts request cycle
+  #   end
+  # end
+
+  # Confirms the correct staff.
+  def correct_staff
+    @staff = Staff.find_by(params[:id])
+  #  @currentstaff = Staff.find_by(id: session[:staff_id])
+    unless current_staff?(@staff)
+      flash[:warning] = "You have no access."
+      redirect_back_or( root_url )
     end
+  end
+  #
+  def require_logout
+    if logged_in?
+      flash[:warning] = "You must be logged out to create a new user"
+      redirect_to(root_url)
+    end
+  end
+
 end

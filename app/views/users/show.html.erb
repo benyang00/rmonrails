@@ -25,5 +25,14 @@
   <%= @user.cc_number %>
 </p>
 
+<p>
+  <strong>Reviews Made (<%= @reviews.length %>):</strong>
+   <% if @user.reviews.length > 0 %>
+     <% @reviews.each do |review| %>
+      <h2><%= review.content %></h2>
+    <% end %>
+   <% end %>
+</p>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

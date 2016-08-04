@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<% if @staff.present? %>
 <p>
   <strong>Name:</strong>
   <%= @staff.name %>
@@ -10,5 +11,7 @@
   <%= @staff.email %>
 </p>
 
+
 <%= link_to 'Edit', edit_staff_path(@staff) %> |
+<% end %>
 <%= link_to 'Back', staffs_path %>

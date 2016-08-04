@@ -10,6 +10,15 @@ module SessionsHelper
     @current_staff ||= Staff.find_by(id: session[:staff_id])
   end
 
+  def redirect_back_or(default)
+    redirect_to(session[:forwarding_url] || default)
+    session.delete(:forwarding_url)
+  end
+
+  def store_location
+    session[:forwarding_url] = request.original_url if request.get?
+  end
+
   #Check if passed staff is current staff
   def current_staff?(staff)
     staff == current_staff

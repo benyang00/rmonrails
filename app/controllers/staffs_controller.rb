@@ -87,7 +87,7 @@ class StaffsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_staff
-    @staff = Staff.find_by(params[:id])
+    @staff = Staff.find(params[:id])
   end
 
   # def require_login
@@ -100,7 +100,7 @@ class StaffsController < ApplicationController
 
   # Confirms the correct staff.
   def correct_staff
-    @staff = Staff.find_by(params[:id])
+    @staff = Staff.find(params[:id])
   #  @currentstaff = Staff.find_by(id: session[:staff_id])
     unless current_staff?(@staff)
       flash[:warning] = "You have no access."

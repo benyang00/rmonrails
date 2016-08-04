@@ -9,15 +9,32 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
 
 <p>
   <strong>Reviews Made (<%= @reviews.length %>):</strong>
-   <% if @user.reviews.length > 0 %>
-     <% @reviews.each do |review| %>
-      <h2><%= review.content %></h2>
-    <% end %>
-   <% end %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<p>
+<div class="userrevs">
+  <table>
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Review</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if @user.reviews.length > 0 %>
+        <% @reviews.each do |review| %>
+          <tr>
+            <td><%= review.product.name %></td>
+            <td><%= review.content %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+</p>

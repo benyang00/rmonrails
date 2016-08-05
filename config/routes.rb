@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get 'staffs/login', to: 'sessions#new'
   post 'staffs/login', to: 'sessions#create'
   delete 'staffs/logout', to: 'sessions#destroy'
+  get 'auth/:provider/callback', to: 'sessions#create'
+  delete 'sign_out', to: 'sessiions#destroy', as: 'sign_out'
 
 
   #restful routes

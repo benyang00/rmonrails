@@ -12,6 +12,8 @@
     <%= f.label :password %>
     <%= f.password_field :password, class: 'form-control' %>
 
+    <%= f.hidden_field :login_mtd, value: 'std'  %>
+
     <%= f.submit "Log in", class: "btn btn-primary" %>
 
     <% end %>

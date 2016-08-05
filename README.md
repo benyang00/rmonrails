@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+rmonrails is a Ruby on Rails website that aims to be an administrative portal to review Radmart customers' reviews on products.
 
-Things you may want to cover:
+Technologies used:
+* Rails
+* Bootstrap
+* gems
+    - omniauth-facebook
 
-* Ruby version
+Approach taken:
+* 4 models
+    - Staff
+    - User
+    - Product
+    - Review
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Unsolved problems:
+* The customers' Facebook login is not functional YET
